@@ -59,6 +59,8 @@
 		});
 	}
 </script>
+<script src="/aws/boot/js/test.js"></script>
+
 </head>
 <body>
 <div id="res"gt;lt;></div>
