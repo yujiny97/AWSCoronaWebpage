@@ -28,13 +28,25 @@ function number_format(number, decimals, dec_point, thousands_sep) {
 }
 
 // Area Chart Example
+$.getJSON("/aws/weekly?date=20201025", function(data){
+	$.each(data, function(inx, obj){
+		chartLabels.push(obj.date);
+		chartData.push(obj.negative);
+	});
+	createChart();
+	console.log("create Chart")
+});
+
+var chartLabels = [];
+var chartData = [];
+function createChart(){
 var ctx = document.getElementById("myAreaChart");
 var myLineChart = new Chart(ctx, {
   type: 'line',
   data: {
-    labels: ["안뇽", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+    labels: chartLabels,
     datasets: [{
-      label: "Earnings",
+      label: "확진판정",
       lineTension: 0.3,
       backgroundColor: "rgba(78, 115, 223, 0.05)",
       borderColor: "rgba(78, 115, 223, 1)",
@@ -46,8 +58,7 @@ var myLineChart = new Chart(ctx, {
       pointHoverBorderColor: "rgba(78, 115, 223, 1)",
       pointHitRadius: 10,
       pointBorderWidth: 2,
-      data: [0, 10000, 5000, 15000, 10000, 20000, 15000, 25000, 20000, 30000, 25000, 40000],
-    }],
+      data: chartData    }],
   },
   options: {
     maintainAspectRatio: false,
@@ -78,7 +89,7 @@ var myLineChart = new Chart(ctx, {
           padding: 10,
           // Include a dollar sign in the ticks
           callback: function(value, index, values) {
-            return '$' + number_format(value);
+            return number_format(value)+'명';
           }
         },
         gridLines: {
@@ -110,9 +121,10 @@ var myLineChart = new Chart(ctx, {
       callbacks: {
         label: function(tooltipItem, chart) {
           var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
-          return datasetLabel + ': $' + number_format(tooltipItem.yLabel);
+          return datasetLabel + number_format(tooltipItem.yLabel)+'명';
         }
       }
     }
   }
 });
+}

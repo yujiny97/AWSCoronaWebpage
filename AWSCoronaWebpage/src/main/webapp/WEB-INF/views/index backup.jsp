@@ -27,12 +27,11 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 		dailyCorona();
-		//weeklyCorona();
 		var a="hi";
 		$("#test").html(a);
 	});
 	var settings = {
-			  "url": "/aws/corona?date=20201025",
+			  "url": "/aws/corona?date=20201018",
 			  "method": "GET",
 			  "timeout": 0,
 			  "datatype": "json"
@@ -46,19 +45,6 @@
 			 $("#released").html(get.released.toLocaleString());
 			 $("#tested").html(get.tested.toLocaleString());
 			 $("#negative").html(get.negative.toLocaleString());
-		});
-	}
-	function weeklyCorona(){
-		var settings = {
-				  "url": "/aws/weekly?date=20201025",
-				  "method": "GET",
-				  "timeout": 0,
-				  "datatype": "json"
-				};
-		$.ajax(settings).done(function (data) {
-			 for(var i=0;i<data.length;i++){
-				 $
-			 }
 		});
 	}
 </script>
@@ -496,7 +482,8 @@
 								<!-- Card Header - Dropdown -->
 								<div
 									class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-									<h6 class="m-0 font-weight-bold text-primary">국내 코로나 확진자수(누적)</h6>
+									<h6 class="m-0 font-weight-bold text-primary">Earnings
+										Overview</h6>
 									<div class="dropdown no-arrow">
 										<a class="dropdown-toggle" href="#" role="button"
 											id="dropdownMenuLink" data-toggle="dropdown"

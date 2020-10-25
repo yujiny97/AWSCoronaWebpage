@@ -12,5 +12,11 @@ resultType="com.awsteam.app.dto.AccuDTO"><!-- selectUsers()메서드를 호출�
     	WHERE country = #{country}
     </if> -->
   </select>
+  
+    <select id="selectWeek" parameterType="long"
+resultType="com.awsteam.app.dto.AccuDTO"><!-- selectUsers()메서드를 호출하면 실행할 SELECT문이며, 
+						UserDTO 객체를 파라미터로 받아, UserDTO객체를 반환합니다.-->
+  	select * from Daily a where a.date between #{bf} and #{nw}
+  </select>
 
 </mapper>
