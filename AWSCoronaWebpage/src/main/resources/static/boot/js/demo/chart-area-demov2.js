@@ -31,7 +31,7 @@ function number_format(number, decimals, dec_point, thousands_sep) {
 $.getJSON("/aws/weekly?date=20201025", function(data){
 	$.each(data, function(inx, obj){
 		chartLabels.push(obj.date);
-		chartData.push(obj.negative);
+		chartData.push(obj.confirmed);
 	});
 	createChart();
 	console.log("create Chart")

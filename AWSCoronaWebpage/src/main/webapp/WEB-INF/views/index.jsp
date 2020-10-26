@@ -408,7 +408,7 @@
 												class="text-xs font-weight-bold text-info text-uppercase mb-1">국내
 												총 확진자(누적)</div>
 											<div class="h5 mb-0 font-weight-bold text-gray-800">
-												<div id="negative"></div>
+												<div id="confirmed"></div>
 											</div>
 										</div>
 										<div class="col-auto">
@@ -418,6 +418,7 @@
 								</div>
 							</div>
 						</div>
+						
 
 						<!-- 격리 해제 -->
 						<div class="col-xl-3 col-md-6 mb-4">
@@ -437,7 +438,7 @@
 							</div>
 						</div>
 
-						<!-- 치료 중 -->
+						<!-- 검사자 -->
 						<div class="col-xl-3 col-md-6 mb-4">
 							<div class="card border-left-warning shadow h-100 py-2">
 								<div class="card-body">
@@ -448,7 +449,7 @@
 												중(격리중)</div>
 											<div class="row no-gutters align-items-center">
 												<div class="col-auto">
-													<div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><div id="confirmed"></div></div>
+													<div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><div id="tested"></div></div>
 												</div>
 												<div class="col">
 													<div class="progress progress-sm mr-2">
@@ -461,6 +462,26 @@
 										</div>
 										<div class="col-auto">
 											<i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+												<!-- 음성 -->
+						<div class="col-xl-3 col-md-6 mb-4">
+							<div class="card border-left-info shadow h-100 py-2">
+								<div class="card-body">
+									<div class="row no-gutters align-items-center">
+										<div class="col mr-2">
+											<div
+												class="text-xs font-weight-bold text-info text-uppercase mb-1">음성</div>
+											<div class="h5 mb-0 font-weight-bold text-gray-800">
+												<div id="negative"></div>
+											</div>
+										</div>
+										<div class="col-auto">
+											<i class="fas fa-calendar fa-2x text-gray-300"></i>
 										</div>
 									</div>
 								</div>
@@ -703,7 +724,7 @@
 									<div class="text-center">
 										<img class="img-fluid px-3 px-sm-4 mt-3 mb-4"
 											style="width: 25rem;"
-											src="/aws/boot/img/undraw_posting_photo.svg" alt="">
+											src="/aws/boot/img/prevention.svg" alt="">
 									</div>
 									<p>
 										Add some quality, svg illustrations to your project courtesy
@@ -801,7 +822,7 @@
 
 	<!-- Page level custom scripts -->
 	<script src="/aws/boot/js/demo/chart-area-demov2.js"></script>
-	<script src="/aws/boot/js/demo/chart-pie-demo.js"></script>
+	<script src="/aws/boot/js/demo/chart-pie-demov2.js"></script>
 
 </body>
 
