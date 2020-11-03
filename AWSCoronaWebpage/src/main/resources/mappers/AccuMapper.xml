@@ -3,20 +3,30 @@
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  <mapper namespace="com.awsteam.app.dao.AccuDAO"><!--namespace를 통해 UserDAO와 연결합니다. -->
   		
-  <select id="selectAccu" parameterType="long"
+  <select id="selectAccu" parameterType="String"
 resultType="com.awsteam.app.dto.AccuDTO"><!-- selectUsers()메서드를 호출하면 실행할 SELECT문이며, 
 						UserDTO 객체를 파라미터로 받아, UserDTO객체를 반환합니다.-->
-  	SELECT *
-    FROM daily where date=#{date}
+<!--   	SELECT *
+    FROM Daily where date=str_to_date(#{date}, '%Y%m%d') -->
+    SELECT * 
+    FROM Daily a 
+    where a.date=(select IF(c.cnt=0,MAX(b.date),str_to_date(#{date}, '%Y%m%d')) as date2 
+    from Daily b, 
+    (select count(c.date) as cnt from Daily c where c.date=str_to_date(#{date}, '%Y%m%d')) c);
 <!--     <if test='country != null and country != ""'>만약 파라미터에 country가 있다면 SQL문에 WHERE절을 추가합니다.
     	WHERE country = #{country}
     </if> -->
   </select>
   
-    <select id="selectWeek" parameterType="long"
+    <select id="selectWeek" parameterType="String"
 resultType="com.awsteam.app.dto.AccuDTO"><!-- selectUsers()메서드를 호출하면 실행할 SELECT문이며, 
 						UserDTO 객체를 파라미터로 받아, UserDTO객체를 반환합니다.-->
-  	select * from Daily a where a.date between #{bf} and #{nw}
+  	<!-- select * from Daily a where a.date between str_to_date(#{bf}, '%Y%m%d') and str_to_date(#{nw}, '%Y%m%d'); -->
+  	select date,confirmed,death,released,tested,negative
+  	 from Daily a, (select IF(c.cnt=0,MAX(b.date),str_to_date(#{nw}, '%Y%m%d')) as date2 
+from Daily b, (select count(c.date) as cnt 
+from Daily c where c.date=str_to_date(#{nw}, '%Y%m%d')) c) d 
+where a.date between DATE_SUB(d.date2,INTERVAL 1 WEEK) and d.date2;
   </select>
 
 </mapper>

@@ -26,15 +26,26 @@ function number_format(number, decimals, dec_point, thousands_sep) {
   }
   return s.join(dec);
 }
+Date.prototype.yyyymmdd = function() {
+	  var mm = this.getMonth() + 1; // getMonth() is zero-based
+	  var dd = this.getDate();
 
+	  return [this.getFullYear(),
+	          (mm>9 ? '' : '0') + mm,
+	          (dd>9 ? '' : '0') + dd
+	         ].join('');
+};
 // Area Chart Example
-$.getJSON("/aws/weekly?date=20201025", function(data){
+$.getJSON("/aws/weekly?date="+document.getElementById("nwdate").value, function(data){
 	$.each(data, function(inx, obj){
-		chartLabels.push(obj.date);
+		var s=new Date(obj.date);
+		chartLabels.push(s.yyyymmdd());
 		chartData.push(obj.confirmed);
 	});
 	createChart();
 	console.log("create Chart")
+	//alert(document.getElementById("nwdate").value);
+	//document.getElementById("getdate");
 });
 
 var chartLabels = [];

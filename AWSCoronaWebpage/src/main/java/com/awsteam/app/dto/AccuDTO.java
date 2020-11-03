@@ -1,5 +1,7 @@
 package com.awsteam.app.dto;
 
+import java.util.Date;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -8,11 +10,11 @@ import lombok.Setter;
 @Getter // Getter 생성
 @Setter // Setter 생성
 public class AccuDTO {
-	private long date;
-	public long getDate() {
+	private Date date;
+	public Date getDate() {
 		return date;
 	}
-	public void setDate(long date) {
+	public void setDate(Date date) {
 		this.date = date;
 	}
 	public int getConfirmed() {

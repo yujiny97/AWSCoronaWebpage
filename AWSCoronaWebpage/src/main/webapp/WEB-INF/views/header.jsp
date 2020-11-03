@@ -3,12 +3,8 @@
 	
 <!DOCTYPE html>
 <html>
-
-<!-- Mirrored from codefactory.kr/demos/D3/korean-map/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Oct 2020 09:24:40 GMT -->
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 <head>
 	<meta charset="utf-8">
-	<title>벡터맵을 활용한 우리나라 지도</title>
 	<meta name="description" content="D3.js로 만든 우리나라 지도">
   <meta name="author" content="링크잇, http://linkit.kr">
 	
@@ -27,9 +23,6 @@
 <body>
 	
 	<div id="container" class="container">
-		<h1>벡터맵을 활용한 우리나라 지도</h1>
-		<p style="font-size:13px;">벡터맵을 활용하여 우리나라를 표출하고, 확대/축소가 가능하며, 행정구역별로 확대 이동이 가능하여 행정구역별 통계등을 표현하는데 유용하게 활용될 수 있습니다.</p>
-		
 		<div id="radio">
 			<span class="title">지명표시</span>
 	    <input type="radio" id="radio1" name="radio" value="on" checked><label for="radio1">On</label>
