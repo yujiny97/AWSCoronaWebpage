@@ -13,6 +13,7 @@
 	<artifactId>AWSCoronaWebpage</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>AWSCoronaWebpage</name>
+	<packaging>war</packaging>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
@@ -22,7 +23,8 @@
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -102,6 +104,21 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<filteringDeploymentDescriptors>true</filteringDeploymentDescriptors>
+					<webResources>
+						<resource>
+							<directory>${basedir}/src/main/webapp</directory>
+							<targetPath />
+							<filtering>true</filtering>
+							<excludes>
+								<exclude>**/*.woff</exclude>
+								<exclude>**/*.woff2</exclude>
+								<exclude>**/*.ttf</exclude>
+							</excludes>
+						</resource>
+					</webResources>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

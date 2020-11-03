@@ -26,12 +26,13 @@
 <link href="/aws/boot/css/sb-admin-2.min.css" rel="stylesheet">
 <script type="text/javascript">
 	$(document).ready(function(){
-		$("#getdate").html("${getdate}");
 		dailyCorona();
 		//weeklyCorona();
+		var a="hi";
+		$("#test").html(a);
 	});
 	var settings = {
-			  "url": '/aws/corona?date='+"${getdate}",
+			  "url": "/aws/corona?date=20201025",
 			  "method": "GET",
 			  "timeout": 0,
 			  "datatype": "json"
@@ -49,22 +50,21 @@
 	}
 	function weeklyCorona(){
 		var settings = {
-				  "url": "/aws/weekly?date="+"${getdate}",
+				  "url": "/aws/weekly?date=20201025",
 				  "method": "GET",
 				  "timeout": 0,
 				  "datatype": "json"
 				};
 		$.ajax(settings).done(function (data) {
 			 for(var i=0;i<data.length;i++){
-				 //$
+				 $
 			 }
 		});
 	}
 </script>
 </head>
+
 <body id="page-top">
-<%-- <p id="test">${a}</p> --%>
-<input type="hidden" name="chat" id="nwdate" value="${getdate}" />
 
 	<!-- Page Wrapper -->
 	<div id="wrapper">
@@ -600,7 +600,46 @@
 									<h6 class="m-0 font-weight-bold text-primary">Projects</h6>
 								</div>
 								<div class="card-body">
-									<%@include file="/WEB-INF/views/header.jsp" %>
+									<h4 class="small font-weight-bold">
+										Server Migration <span class="float-right">20%</span>
+									</h4>
+									<div class="progress mb-4">
+										<div class="progress-bar bg-danger" role="progressbar"
+											style="width: 20%" aria-valuenow="20" aria-valuemin="0"
+											aria-valuemax="100"></div>
+									</div>
+									<h4 class="small font-weight-bold">
+										Sales Tracking <span class="float-right">40%</span>
+									</h4>
+									<div class="progress mb-4">
+										<div class="progress-bar bg-warning" role="progressbar"
+											style="width: 40%" aria-valuenow="40" aria-valuemin="0"
+											aria-valuemax="100"></div>
+									</div>
+									<h4 class="small font-weight-bold">
+										Customer Database <span class="float-right">60%</span>
+									</h4>
+									<div class="progress mb-4">
+										<div class="progress-bar" role="progressbar"
+											style="width: 60%" aria-valuenow="60" aria-valuemin="0"
+											aria-valuemax="100"></div>
+									</div>
+									<h4 class="small font-weight-bold">
+										Payout Details <span class="float-right">80%</span>
+									</h4>
+									<div class="progress mb-4">
+										<div class="progress-bar bg-info" role="progressbar"
+											style="width: 80%" aria-valuenow="80" aria-valuemin="0"
+											aria-valuemax="100"></div>
+									</div>
+									<h4 class="small font-weight-bold">
+										Account Setup <span class="float-right">Complete!</span>
+									</h4>
+									<div class="progress">
+										<div class="progress-bar bg-success" role="progressbar"
+											style="width: 100%" aria-valuenow="100" aria-valuemin="0"
+											aria-valuemax="100"></div>
+									</div>
 								</div>
 							</div>
 

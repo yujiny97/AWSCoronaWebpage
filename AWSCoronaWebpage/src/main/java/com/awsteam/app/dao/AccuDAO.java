@@ -9,6 +9,6 @@ import com.awsteam.app.dto.AccuDTO;
 
 @Mapper
 public interface AccuDAO {
-	AccuDTO selectAccu(long date) throws Exception;//가장 마지막
-	List<AccuDTO> selectWeek(long nw,long bf) throws Exception;
+	AccuDTO selectAccu(String date) throws Exception;//가장 마지막
+	List<AccuDTO> selectWeek(String nw) throws Exception;
 }
