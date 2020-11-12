@@ -1,19 +1,19 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: hello-py
+  name: coronaweb-spring
 spec:
   type: LoadBalancer
   ports:
     - port: 80
-      targetPort: 8081
+      targetPort: 8080
   selector:
-    app: hello-py
+    app: coronaweb-spring
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: hello-py
+  name: coronaweb-spring
 spec:
   replicas: 2
   strategy:
@@ -23,14 +23,14 @@ spec:
       maxSurge: 3
   selector:
     matchLabels:
-      app: hello-py
+      app: coronaweb-spring
   template:
     metadata:
       labels:
-        app: hello-py
+        app: coronaweb-spring
     spec:
       containers:
-        - name: hello-py
+        - name: coronaweb-spring
           image: CONTAINER_IMAGE
           imagePullPolicy: Always
           securityContext:
@@ -38,4 +38,4 @@ spec:
             readOnlyRootFilesystem: true
             allowPrivilegeEscalation: false
           ports:
-            - containerPort: 8081
+            - containerPort: 8080
